@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "DojoActivities: New Activity";
+}
+@model DojoActivities.Models.ViewActivity
+
+<form asp-controller="Dashboard" asp-action="CreateActivity" method="POST">
+    <h1>Create an Activity</h1>
+
+    <div class="form horiz">
+        <label asp-for="Title"></label>
+        <input asp-for="Title">
+    </div>
+    <span class="error right" asp-validation-for="Title"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" min="@DateTime.Now">
+    </div>
+    <span class="error right" asp-validation-for="Date"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="Time"></label>
+        <input asp-for="Time" min="@DateTime.Now">
+    </div>
+    <span class="error right" asp-validation-for="Time"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" min="0">
+    </div>
+    <div class= "form horiz">
+        <label> </label>
+        <select asp-for="DurationType" value="Minutes">
+            <option value="Minutes">Minutes</option>
+            <option value="Hours">Hours</option>
+            <option value="Days">Days</option>
+        </select>
+    </div>
+    <span class="error right" asp-validation-for="Duration"></span><br>
+        
+    <div class="form horiz">
+        <label asp-for="Duration"></label>
+        <textarea asp-for="Description" cols="30" rows="10"></textarea>
+    </div>
+    <span class="error right" asp-validation-for="Duration"></span><br>
+
+    <input type="submit" value="Create Activity" class="btn btn-primary">
+</form>
